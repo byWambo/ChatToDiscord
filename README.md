@@ -8,7 +8,7 @@ Coming soon
 Coming soon
 
 # Help
-If you have any problems with this plugin, please create an issue or join my Discord and tell me your problem in #chat-to-discord
+If you have any problems with this plugin, please create an issue or join my [Discord](https://discord.gg/aHVQP24by2) and tell me your problem in #chat-to-discord
 
 # Contribution
 Feel free to contribute :)
