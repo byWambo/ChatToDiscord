@@ -8,6 +8,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class ChatToDiscord extends JavaPlugin{
 
@@ -37,6 +40,8 @@ public class ChatToDiscord extends JavaPlugin{
         try {
             Config.Enabled = config.getBoolean("enabled");
             Config.WebhookURL = new URL(config.getString("webhookURL"));
+            List<Map<?, ?>> test = config.getMapList("embed");
+            Bukkit.getLogger().info(String.valueOf(test.size()));
 
             return true;
         } catch (MalformedURLException e) {

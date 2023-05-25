@@ -1,2 +1,6 @@
 enabled: true
 webhookURL: <INSERT URL HERE>
+
+embed:
+- title: Test
+- description: test
