@@ -1,0 +1,7 @@
+main: de.bywambo.chattodiscord.ChatToDiscord
+version: 0.1
+name: ChatToDiscord
+description: A plugin to log the Minecraft (1.8.x) chat into a Discord channel via webhooks
+author: byWambo
+website: https://github.com/byWambo/ChatToDiscord
+prefix: CtD

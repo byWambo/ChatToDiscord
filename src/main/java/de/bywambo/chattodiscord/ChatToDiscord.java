@@ -7,7 +7,7 @@ public class ChatToDiscord extends JavaPlugin{
 
     @Override
     public void onEnable() {
-        Bukkit.getLogger().info("ChatToDiscord started!");
+        Bukkit.getLogger().info("ChatToDiscord succeeded!");
     }
 
     @Override
