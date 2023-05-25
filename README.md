@@ -18,7 +18,7 @@ To-Do:
 * support all minecraft versions from 1.8+
 * make messages customizable
 * Continuous Deployment (to automatically build new versions)
-* check for updates
+* better logging
 
 maybe doing:
 * embeds?
