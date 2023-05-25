@@ -2,10 +2,12 @@ package de.bywambo.chattodiscord;
 
 import de.bywambo.chattodiscord.listener.ChatListener;
 import de.bywambo.chattodiscord.utils.Config;
+import de.bywambo.chattodiscord.utils.UpdateChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -22,6 +24,13 @@ public class ChatToDiscord extends JavaPlugin{
         // If it fails to load, the plugin disables itself.
         if (!setupConfig())
             return;
+
+        try {
+            UpdateChecker.checkForUpdate(this.getDescription().getVersion());
+        } catch (IOException e) {
+            Bukkit.getLogger().info("Couldn't check version on GitHub. Please check your internet connection");
+        }
+
         // Registers the ChatListener
         getServer().getPluginManager().registerEvents(new ChatListener(), this);
 
