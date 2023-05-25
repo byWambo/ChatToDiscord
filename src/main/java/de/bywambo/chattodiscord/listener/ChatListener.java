@@ -1,5 +1,8 @@
 package de.bywambo.chattodiscord.listener;
 
+import de.bywambo.chattodiscord.utils.Config;
+import de.bywambo.chattodiscord.utils.Connector;
+import de.bywambo.chattodiscord.utils.MessageBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -12,6 +15,11 @@ public class ChatListener implements Listener {
     // Still wondering if this is a good idea
     @EventHandler (priority = EventPriority.MONITOR)
     public void onPlayerChat(AsyncPlayerChatEvent event) {
+        // If the config is turned off then we don't do anything
+        if (!Config.Enabled) {
+            return;
+        }
+
         // if event is null, tell the admins and return
         if (event == null) {
             Bukkit.getLogger().info("Couldn't send message to Discord due to event being null!");
@@ -22,7 +30,7 @@ public class ChatListener implements Listener {
         // Content of the message
         String message = event.getMessage();
 
-
+        Connector.sendToWebhook(Config.WebhookURL, MessageBuilder.buildPlainChatMessage(player, message));
 
     }
 
