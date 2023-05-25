@@ -17,6 +17,8 @@ If you encounter any bad practices in this code, please let me know! I love to l
 To-Do:
 * support all minecraft versions from 1.8+
 * make messages customizable
+* Continuous Deployment (to automatically build new versions)
+* check for updates
 
 maybe doing:
 * embeds?
