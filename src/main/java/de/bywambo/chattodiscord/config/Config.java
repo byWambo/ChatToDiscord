@@ -7,12 +7,12 @@ import java.net.URL;
  */
 public class Config {
 
+    private static boolean enabled = false;
+    private static URL webhookURL = null;
+
     private Config() {
         throw new IllegalStateException("Utility class");
     }
-
-    private static boolean enabled = false;
-    private static URL webhookURL = null;
 
     public static boolean isEnabled() {
         return enabled;

@@ -1,20 +1,20 @@
 package de.bywambo.chattodiscord;
 
-import de.bywambo.chattodiscord.listener.ChatListener;
 import de.bywambo.chattodiscord.config.Config;
+import de.bywambo.chattodiscord.listener.ChatListener;
 import de.bywambo.chattodiscord.utils.UpdateChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-import java.util.logging.Level;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 
-public class ChatToDiscord extends JavaPlugin{
+public class ChatToDiscord extends JavaPlugin {
 
     FileConfiguration config = getConfig();
 

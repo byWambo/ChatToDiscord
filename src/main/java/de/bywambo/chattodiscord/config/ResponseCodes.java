@@ -6,10 +6,6 @@ package de.bywambo.chattodiscord.config;
  */
 public final class ResponseCodes {
 
-    private ResponseCodes() {
-        throw new IllegalStateException("Utility class");
-    }
-
     public static final int OK_NO_CONTENT = 204;
     public static final int BAD_REQUEST = 400;
     public static final int UNAUTHORIZED = 401;
@@ -17,4 +13,8 @@ public final class ResponseCodes {
     public static final int NOT_FOUND = 404;
     public static final int TOO_MANY_REQUESTS = 429;
     public static final int GATEWAY_UNAVAILABLE = 502;
+
+    private ResponseCodes() {
+        throw new IllegalStateException("Utility class");
+    }
 }
