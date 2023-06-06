@@ -10,6 +10,10 @@ import java.net.URL;
 
 public class Connector {
 
+    private Connector() {
+        throw new IllegalStateException("Utility class");
+    }
+
     // Sends a POST request to the given URL and returns the HTTP Response Code
     public static void sendToWebhook(URL url, String body) {
         try {

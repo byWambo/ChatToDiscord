@@ -10,6 +10,11 @@ import java.net.URL;
 import java.util.Map;
 
 public class UpdateChecker {
+
+    private UpdateChecker() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static void checkForUpdate(String version) throws IOException {
 
         Bukkit.getLogger().info("Checking for update");

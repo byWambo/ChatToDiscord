@@ -5,6 +5,10 @@ import org.json.simple.JSONObject;
 
 public class MessageBuilder {
 
+    private MessageBuilder() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static String buildPlainChatMessage(Player player, String message) {
         JSONObject json = new JSONObject();
 
