@@ -6,11 +6,11 @@ import de.bywambo.chattodiscord.utils.UpdateChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import java.util.logging.Level;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -54,7 +54,8 @@ public class ChatToDiscord extends JavaPlugin{
 
             return true;
         } catch (MalformedURLException e) {
-            Bukkit.getLogger().info("[ERROR] webhookURL in plugin.yml is malformed! Please change the URL");
+            // Evaluate logging '[ERROR]' before the string here
+            Bukkit.getLogger().log(Level.SEVERE, "[ERROR] webhookURL in plugin.yml is malformed! Please change the URL!");
             getServer().getPluginManager().disablePlugin(this);
             return false;
         }

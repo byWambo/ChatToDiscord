@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
+import java.util.logging.Level;
 
 public class UpdateChecker {
 
@@ -31,10 +32,9 @@ public class UpdateChecker {
         String remoteVersion = obj.get("version").toString();
 
         if (!remoteVersion.equals(version)) {
-            Bukkit.getLogger().info(
-                    String.format("A new version for ChatToDiscord is available! (%s) " +
-                            "Download it here: https://github.com/byWambo/ChatToDiscord", remoteVersion)
-            );
+            String message = String.format("A new version for ChatToDiscord is available! (%s) " +
+                    "Download it here: https://github.com/byWambo/ChatToDiscord", remoteVersion);
+            Bukkit.getLogger().log(Level.INFO, message);
         }
     }
 }
