@@ -1,6 +1,6 @@
 package de.bywambo.chattodiscord.listener;
 
-import de.bywambo.chattodiscord.utils.Config;
+import de.bywambo.chattodiscord.config.Config;
 import de.bywambo.chattodiscord.utils.Connector;
 import de.bywambo.chattodiscord.utils.MessageBuilder;
 import org.bukkit.Bukkit;
@@ -16,7 +16,7 @@ public class ChatListener implements Listener {
     @EventHandler (priority = EventPriority.MONITOR)
     public void onPlayerChat(AsyncPlayerChatEvent event) {
         // If the config is turned off then we don't do anything
-        if (!Config.Enabled) {
+        if (!Config.isEnabled()) {
             return;
         }
 
@@ -30,7 +30,7 @@ public class ChatListener implements Listener {
         // Content of the message
         String message = event.getMessage();
 
-        Connector.sendToWebhook(Config.WebhookURL, MessageBuilder.buildPlainChatMessage(player, message));
+        Connector.sendToWebhook(Config.getWebhookURL(), MessageBuilder.buildPlainChatMessage(player, message));
 
     }
 

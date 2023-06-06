@@ -1,7 +1,7 @@
 package de.bywambo.chattodiscord;
 
 import de.bywambo.chattodiscord.listener.ChatListener;
-import de.bywambo.chattodiscord.utils.Config;
+import de.bywambo.chattodiscord.config.Config;
 import de.bywambo.chattodiscord.utils.UpdateChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -47,8 +47,8 @@ public class ChatToDiscord extends JavaPlugin{
         saveConfig();
 
         try {
-            Config.Enabled = config.getBoolean("enabled");
-            Config.WebhookURL = new URL(config.getString("webhookURL"));
+            Config.setEnabled(config.getBoolean("enabled"));
+            Config.setWebhookURL(new URL(config.getString("webhookURL")));
             List<Map<?, ?>> test = config.getMapList("embed");
             Bukkit.getLogger().info(String.valueOf(test.size()));
 
