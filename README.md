@@ -1,6 +1,8 @@
 # ChatToDiscord
 A plugin to log the Minecraft (1.8.x) chat into a Discord channel via webhooks. 
 
+**!!!STILL WIP!!!**
+
 # Usage
 Coming soon
 
