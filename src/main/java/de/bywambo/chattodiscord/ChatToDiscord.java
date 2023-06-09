@@ -1,7 +1,7 @@
 package de.bywambo.chattodiscord;
 
+import de.bywambo.chattodiscord.config.Config;
 import de.bywambo.chattodiscord.listener.ChatListener;
-import de.bywambo.chattodiscord.utils.Config;
 import de.bywambo.chattodiscord.utils.UpdateChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -10,11 +10,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 
-public class ChatToDiscord extends JavaPlugin{
+public class ChatToDiscord extends JavaPlugin {
 
     FileConfiguration config = getConfig();
 
@@ -47,14 +47,15 @@ public class ChatToDiscord extends JavaPlugin{
         saveConfig();
 
         try {
-            Config.Enabled = config.getBoolean("enabled");
-            Config.WebhookURL = new URL(config.getString("webhookURL"));
+            Config.setEnabled(config.getBoolean("enabled"));
+            Config.setWebhookURL(new URL(config.getString("webhookURL")));
             List<Map<?, ?>> test = config.getMapList("embed");
             Bukkit.getLogger().info(String.valueOf(test.size()));
 
             return true;
         } catch (MalformedURLException e) {
-            Bukkit.getLogger().info("[ERROR] webhookURL in plugin.yml is malformed! Please change the URL");
+            // Evaluate logging '[ERROR]' before the string here
+            Bukkit.getLogger().log(Level.SEVERE, "[ERROR] webhookURL in plugin.yml is malformed! Please change the URL!");
             getServer().getPluginManager().disablePlugin(this);
             return false;
         }

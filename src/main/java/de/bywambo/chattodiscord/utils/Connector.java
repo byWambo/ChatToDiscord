@@ -1,6 +1,6 @@
 package de.bywambo.chattodiscord.utils;
 
-import de.bywambo.chattodiscord.statics.ResponseCodes;
+import de.bywambo.chattodiscord.config.ResponseCodes;
 import org.bukkit.Bukkit;
 
 import java.io.IOException;
@@ -9,6 +9,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Connector {
+
+    private Connector() {
+        throw new IllegalStateException("Utility class");
+    }
 
     // Sends a POST request to the given URL and returns the HTTP Response Code
     public static void sendToWebhook(URL url, String body) {
@@ -35,7 +39,7 @@ public class Connector {
 
     private static void logWithStatusCode(int statusCode) {
         String msg;
-        switch(statusCode) {
+        switch (statusCode) {
             case ResponseCodes.OK_NO_CONTENT:
                 msg = "[INFO] Successfully sent to Discord!";
                 break;
@@ -71,7 +75,8 @@ public class Connector {
                         "Please create a issue at https://github.com/byWambo/ChatToDiscord/issues containing this message";
                 break;
         }
-
+        // This does not detect the actual loglevel! Both 'Error' and 'Info' messages are logged as 'Info' Log!
+        // java.util.logging.Level provides log levels
         Bukkit.getLogger().info(msg);
     }
 
