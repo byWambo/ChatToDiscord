@@ -1,16 +1,16 @@
-package de.bywambo.chattodiscord.config;
+package de.bywambo.chattodiscord.models;
 
 import java.net.URL;
 
 /**
  * Editable Configuration object class, covering parts of config.yaml
  */
-public class Config {
+public class ConfigModel {
 
     private static boolean enabled = false;
     private static URL webhookURL = null;
 
-    private Config() {
+    private ConfigModel() {
         throw new IllegalStateException("Utility class");
     }
 
@@ -19,7 +19,7 @@ public class Config {
     }
 
     public static void setEnabled(boolean enabled) {
-        Config.enabled = enabled;
+        ConfigModel.enabled = enabled;
     }
 
     public static URL getWebhookURL() {
@@ -27,6 +27,6 @@ public class Config {
     }
 
     public static void setWebhookURL(URL webhookURL) {
-        Config.webhookURL = webhookURL;
+        ConfigModel.webhookURL = webhookURL;
     }
 }

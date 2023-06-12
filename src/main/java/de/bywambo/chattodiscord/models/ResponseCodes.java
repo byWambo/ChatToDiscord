@@ -1,4 +1,4 @@
-package de.bywambo.chattodiscord.config;
+package de.bywambo.chattodiscord.models;
 
 /**
  * Important Discord status codes from
