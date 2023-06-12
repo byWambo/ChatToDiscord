@@ -1,6 +1,6 @@
 package de.bywambo.chattodiscord.utils;
 
-import de.bywambo.chattodiscord.config.ResponseCodes;
+import de.bywambo.chattodiscord.constants.ResponseCodes;
 import org.bukkit.Bukkit;
 
 import java.io.IOException;

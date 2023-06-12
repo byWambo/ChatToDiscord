@@ -1,6 +1,6 @@
 package de.bywambo.chattodiscord;
 
-import de.bywambo.chattodiscord.config.Config;
+import de.bywambo.chattodiscord.models.ConfigModel;
 import de.bywambo.chattodiscord.listener.ChatListener;
 import de.bywambo.chattodiscord.utils.UpdateChecker;
 import org.bukkit.Bukkit;
@@ -26,7 +26,7 @@ public class ChatToDiscord extends JavaPlugin {
             return;
 
         try {
-            UpdateChecker.checkForUpdate(this.getDescription().getVersion());
+            UpdateChecker.checkForUpdate(Float.valueOf(this.getDescription().getVersion()));
         } catch (IOException e) {
             Bukkit.getLogger().info("Couldn't check version on GitHub. Please check your internet connection");
         }
@@ -47,8 +47,8 @@ public class ChatToDiscord extends JavaPlugin {
         saveConfig();
 
         try {
-            Config.setEnabled(config.getBoolean("enabled"));
-            Config.setWebhookURL(new URL(config.getString("webhookURL")));
+            ConfigModel.setEnabled(config.getBoolean("enabled"));
+            ConfigModel.setWebhookURL(new URL(config.getString("webhookURL")));
             List<Map<?, ?>> test = config.getMapList("embed");
             Bukkit.getLogger().info(String.valueOf(test.size()));
 
