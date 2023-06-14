@@ -16,7 +16,7 @@ public class UpdateChecker {
         throw new IllegalStateException("Utility class");
     }
 
-    public static void checkForUpdate(Float version) throws IOException {
+    public static void checkForUpdate(String version) throws IOException {
 
         Bukkit.getLogger().info("Checking for update");
 
@@ -27,9 +27,9 @@ public class UpdateChecker {
         postConnection.setRequestMethod("GET");
 
         PluginModel pluginConfigMap = (PluginModel) yaml.load(postConnection.getInputStream());
-        Float remoteVersion = pluginConfigMap.getVersion();
+        String remoteVersion = pluginConfigMap.getVersion();
 
-        if (remoteVersion > version) {
+        if (!remoteVersion.equals(version)) {
             String message = String.format("A new version for ChatToDiscord is available! (%s) " +
                     "Download it here: https://github.com/byWambo/ChatToDiscord", remoteVersion);
             Bukkit.getLogger().log(Level.INFO, message);

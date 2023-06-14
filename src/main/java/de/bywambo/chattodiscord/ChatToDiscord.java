@@ -26,7 +26,7 @@ public class ChatToDiscord extends JavaPlugin {
             return;
 
         try {
-            UpdateChecker.checkForUpdate(Float.valueOf(this.getDescription().getVersion()));
+            UpdateChecker.checkForUpdate(this.getDescription().getVersion());
         } catch (IOException e) {
             Bukkit.getLogger().info("Couldn't check version on GitHub. Please check your internet connection");
         }

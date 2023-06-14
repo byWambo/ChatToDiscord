@@ -6,7 +6,7 @@ package de.bywambo.chattodiscord.models;
  */
 public class PluginModel {
     private String main;
-    private Float version;
+    private String version;
     private String name;
     private String description;
     private String author;
@@ -21,11 +21,11 @@ public class PluginModel {
         this.main = main;
     }
 
-    public Float getVersion() {
+    public String getVersion() {
         return version;
     }
 
-    public void setVersion(Float version) {
+    public void setVersion(String version) {
         this.version = version;
     }
 
